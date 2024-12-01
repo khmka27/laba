@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="ya.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="login-page-container">
+      <div
+        class="modal show"
+        tabindex="-1"
+        role="dialog"
+        style="display: block"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content custom-modal">
+            <div
+              class="modal-header"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <h5 class="modal-title">
+                <img
+                  src="orig.png"
+                  alt=""
+                  style="width: 100px; height: auto"
+                  class="rounded"
+                />
+              </h5>
+            </div>
+            <div class="modal-body text-center">
+              <h5>Войдите с ID</h5>
+              <div class="btn-group mb-3" role="group" aria-label="Login type">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="setLoginType('email')"
+                >
+                  Email
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="setLoginType('phone')"
+                >
+                  Телефон
+                </button>
+              </div>
+              <div id="loginForm">
+                <div class="form-group mb-3" id="emailGroup">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Логин или email"
+                  />
+                </div>
+                <div class="form-group mb-3 d-none" id="phoneGroup">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    name="phone"
+                    placeholder="Телефон"
+                  />
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Пароль"
+                />
+              </div>
+              <button type="submit" class="btn btn-dark">Войти</button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                style="
+                  background-color: white;
+                  border-color: lightgray;
+                  color: black;
+                "
+              >
+                Создать ID
+              </button>
+              <div class="btn-group mb-3" role="group" aria-label="Login type">
+                <button type="button" class="btn btn-light">
+                  <i class="fas fa-qrcode" style="margin-right: 8px"></i> QR-код
+                </button>
+                <button type="button" class="btn btn-light">
+                  <i class="fab fa-vk" style="margin-right: 8px"></i> еще
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="custom-footer">
+        <div class="footer-left">
+          Используй режим инкогнито на чужом компьютере
+        </div>
+        <div class="footer-right">Ru Справка и поддержка</div>
+      </footer>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      let loginType = 'email';
+
+      function setLoginType(type) {
+        loginType = type;
+        document
+          .getElementById('emailGroup')
+          .classList.toggle('d-none', type !== 'email');
+        document
+          .getElementById('phoneGroup')
+          .classList.toggle('d-none', type !== 'phone');
+      }
+
+      setLoginType(loginType);
+    </script>
+  </body>
+</html>
